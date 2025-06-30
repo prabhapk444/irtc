@@ -21,7 +21,7 @@ include 'db.php';
       height: 100vh;
     }
     .login-image {
-      background: url('images/Admin.png') no-repeat center center;
+      background: url('../images/Admin.png') no-repeat center center;
       background-size: cover;
       height: 100%;
     }
@@ -47,34 +47,38 @@ include 'db.php';
     .btn-login:hover {
       background-color: darkblue;
     }
+    h1{
+      text-align:center
+    }
   </style>
 </head>
 <body>
 
 <div class="container-fluid login-container">
   <div class="row h-100">
-    <!-- Left Side Image -->
     <div class="col-md-6 d-none d-md-block p-0 login-image"></div>
-
-    <!-- Right Side Form -->
-    <div class="col-md-6 login-form">
-      <div class="login-box">
-        <h3 class="text-center text-primary mb-4">Admin Login</h3>
-        <form method="POST">
-          <div class="mb-3">
-            <label class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" required />
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" required />
-          </div>
-          <div class="d-grid">
-            <button type="submit" class="btn btn-login">Login</button>
-          </div>
-        </form>
+<div class="col-md-6 login-form flex-column">
+  <div class="w-100 mb-4 text-center">
+    <h1 class="fw-bold text-dark">Railway Admin Portal</h1> 
+  </div>
+  
+  <div class="login-box mx-auto">
+    <form method="POST">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" required />
       </div>
-    </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" required />
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-login">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+
   </div>
 </div>
 
@@ -96,48 +100,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $stmt = $conn->prepare("SELECT password FROM admin WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $stmt->store_result();
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$stmt->store_result();
 
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($adminPassword);
-        $stmt->fetch();
+if ($stmt->num_rows > 0) {
+    $stmt->bind_result($adminPassword);
+    $stmt->fetch();
 
-        if (password_verify($password, $adminPassword)) {
-            $_SESSION['admin'] = $username;
-            echo "<script>
-              Swal.fire({
-                icon: 'success',
-                title: 'Login Successful',
-                text: 'Redirecting to Dashboard...',
-                timer: 2000,
-                showConfirmButton: false
-              }).then(() => {
-                window.location.href = 'dashboard.php';
-              });
-            </script>";
-        } else {
-            echo "<script>
-              Swal.fire({
-                icon: 'error',
-                title: 'Incorrect Password',
-                text: 'Please try again!'
-              });
-            </script>";
-        }
+    if ($password === $adminPassword) {
+        $_SESSION['admin'] = $username;
+        echo "<script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Login Successful',
+            text: 'Redirecting to Dashboard...',
+            timer: 2000,
+            showConfirmButton: false
+          }).then(() => {
+            window.location.href = 'dashboard.php';
+          });
+        </script>";
     } else {
         echo "<script>
           Swal.fire({
             icon: 'error',
-            title: 'User Not Found',
-            text: 'No admin found with that username.'
+            title: 'Incorrect Password',
+            text: 'Please try again!'
           });
         </script>";
     }
-
-    $stmt->close();
-    $conn->close();
+}
 }
 ?>
 
