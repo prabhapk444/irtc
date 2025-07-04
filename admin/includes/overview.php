@@ -3,9 +3,8 @@ include "../db.php";
 
 $categoryCount = $conn->query("SELECT COUNT(*) as total FROM category")->fetch_assoc()['total'];
 $userCount = $conn->query("SELECT COUNT(*) as total FROM register")->fetch_assoc()['total'];
+$productsCount = $conn->query("SELECT COUNT(*) as total from products")->fetch_assoc()['total'];
 ?>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <style>
   .stats-grid {
@@ -50,6 +49,7 @@ $userCount = $conn->query("SELECT COUNT(*) as total FROM register")->fetch_assoc
 </style>
 
 <div class="stats-grid">
+  <!-- Category Card -->
   <div class="card-stat">
     <div class="card-icon"><i class="bi bi-tags"></i></div>
     <div class="card-details">
@@ -58,11 +58,21 @@ $userCount = $conn->query("SELECT COUNT(*) as total FROM register")->fetch_assoc
     </div>
   </div>
 
+  <!-- User Card -->
   <div class="card-stat">
     <div class="card-icon"><i class="bi bi-people"></i></div>
     <div class="card-details">
       <h5>Total Registered Users</h5>
       <div class="number" data-target="<?= $userCount ?>">0</div>
+    </div>
+  </div>
+
+  <!-- Products Card -->
+  <div class="card-stat">
+    <div class="card-icon"><i class="bi bi-box"></i></div>
+    <div class="card-details">
+      <h5>Total Products</h5>
+      <div class="number" data-target="<?= $productsCount ?>">0</div>
     </div>
   </div>
 </div>

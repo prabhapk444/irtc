@@ -95,7 +95,7 @@
 </div>
 
 <div class="text-center">
-  <button class="btn btn-warning">View More</button>
+  <a class="btn btn-warning" href="products.php">View More</a>
 </div><br><br>
 
 

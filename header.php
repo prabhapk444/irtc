@@ -1,6 +1,6 @@
 <?php
 session_start();
-$username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
+$username = $_SESSION['username'] ?? null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,24 +101,55 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
           <li class="nav-item">
             <a class="nav-link" href="contact.php">Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="myorder.php">Myorder</a>
+          </li>
         </ul>
 
         <ul class="navbar-nav align-items-center">
           <li class="nav-item position-relative me-3">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="cart.php">
               <i class="bi bi-cart3"></i>
               <!-- Optional cart count -->
-              <!-- <span class="cart-badge">3</span> -->
+              <span class="cart-badge" id="cart-badge"></span>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="logout.php" class="user-tag text-decoration-none">
-              <?php echo htmlspecialchars($username); ?>
-            </a>
-          </li>
+          <?php if ($username): ?>
+  <li class="nav-item">
+    <a href="logout.php" class="user-tag text-decoration-none">
+      <?= htmlspecialchars($username) ?> (Logout)
+    </a>
+  </li>
+<?php else: ?>
+  <li class="nav-item">
+    <a href="register.php" class="user-tag text-decoration-none">
+      Login / Register
+    </a>
+  </li>
+<?php endif; ?>
+
         </ul>
       </div>
     </div>
   </nav>
+  <script>
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let totalCount = 0;
+    cart.forEach(item => {
+      totalCount += item.qty;
+    });
+
+    const cartCountElement = document.getElementById("cart-badge");
+    if (cartCountElement) {
+      cartCountElement.textContent = totalCount;
+      cartCountElement.style.display = totalCount > 0 ? "inline-block" : "none";
+    }
+  }
+
+  // Call this function on page load
+  updateCartCount();
+</script>
+
 </body>
 </html>
