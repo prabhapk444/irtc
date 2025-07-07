@@ -44,6 +44,16 @@
         <label for="station" class="form-label">Delivery Station</label>
         <input type="text" id="station" name="station" class="form-control" placeholder="Enter station name" required />
       </div>
+       <div class="col-12">
+    <label for="payment_method" class="form-label">Payment Method</label>
+    <select id="payment_method" name="payment_method" class="form-select" required>
+      <option value="">Select Payment Method </option>
+      <option value="cash">Cash</option>
+      <option value="online">Online</option>
+    </select>
+  </div>
+
+
       <div class="col-12">
         <button type="submit" class="btn btn-warning">Place Order</button>
       </div>
