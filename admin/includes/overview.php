@@ -4,6 +4,8 @@ include "../db.php";
 $categoryCount = $conn->query("SELECT COUNT(*) as total FROM category")->fetch_assoc()['total'];
 $userCount = $conn->query("SELECT COUNT(*) as total FROM register")->fetch_assoc()['total'];
 $productsCount = $conn->query("SELECT COUNT(*) as total from products")->fetch_assoc()['total'];
+$ordersCount = $conn->query("SELECT COUNT(*) as total FROM orders")->fetch_assoc()['total'];
+
 ?>
 
 <style>
@@ -75,6 +77,15 @@ $productsCount = $conn->query("SELECT COUNT(*) as total from products")->fetch_a
       <div class="number" data-target="<?= $productsCount ?>">0</div>
     </div>
   </div>
+
+  <div class="card-stat">
+  <div class="card-icon"><i class="bi bi-receipt-cutoff"></i></div>
+  <div class="card-details">
+    <h5>Total Orders</h5>
+    <div class="number" data-target="<?= $ordersCount ?>">0</div>
+  </div>
+</div>
+
 </div>
 
 <script>
