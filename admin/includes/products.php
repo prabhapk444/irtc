@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
       $stmt->bind_param("sissdsi", $name, $category, $description, $price, $quantity, $imagePathToStore, $is_show);
       $stmt->execute();
 
-      echo "<script>alert('Product added successfully'); window.location.href='view.php';</script>";
+      echo "<script>alert('Product added successfully'); window.location.href='dashboard.php';</script>";
     } else {
       echo "<script>alert('Failed to upload image');</script>";
     }

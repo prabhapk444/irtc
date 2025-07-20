@@ -111,7 +111,7 @@
       if (data.success) {
         Swal.fire({
           title: "Order Placed!",
-          text: "Your order was placed successfully. You’ll be redirected to Home.",
+          text: "Your order was placed successfully. You’ll be redirected to Home page.",
           icon: "success",
           confirmButtonColor: "#ffc107",
           confirmButtonText: "OK"
