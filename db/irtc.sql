@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2025 at 01:23 PM
+-- Generation Time: Jul 27, 2025 at 07:10 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -58,7 +58,9 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `name`, `created_at`) VALUES
 (1, 'veg', '2025-07-19 11:15:33'),
-(2, 'non veg', '2025-07-19 11:15:39');
+(2, 'non veg', '2025-07-19 11:15:39'),
+(3, 'Snacks', '2025-07-26 10:02:45'),
+(4, 'Drinks', '2025-07-26 10:02:53');
 
 -- --------------------------------------------------------
 
@@ -132,7 +134,9 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `name`, `category_id`, `description`, `price`, `quantity`, `image_url`, `is_show`, `created_at`) VALUES
 (1, 'Chicken Briyani', 2, 'Chicken biryani is a delicious Pakistani/Indian rice dish that\'s typically reserved for special occasions', '100.00', 199, 'images/1752923819_1751610129_chicken.webp', 1, '2025-07-19 11:16:59'),
-(2, 'Dosa', 1, 'A dosa is served hot, either folded in half or rolled like a wrap', '30.00', 300, 'images/1752923908_1751610361_plain.webp', 1, '2025-07-19 11:18:28');
+(2, 'Dosa', 1, 'A dosa is served hot, either folded in half or rolled like a wrap', '30.00', 300, 'images/1752923908_1751610361_plain.webp', 1, '2025-07-19 11:18:28'),
+(3, 'Senai kelangu Chips', 3, 'this is so spicy', '20.00', 300, 'images/1753524582_senai.jpg', 1, '2025-07-26 10:09:42'),
+(4, 'Orange juice', 4, 'Orange juice is a liquid extract of the orange tree fruit, produced by squeezing or reaming oranges.', '30.00', 300, 'images/1753524708_orange.jpeg', 1, '2025-07-26 10:11:48');
 
 -- --------------------------------------------------------
 
@@ -214,7 +218,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -232,7 +236,7 @@ ALTER TABLE `order_items`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `register`

@@ -43,10 +43,12 @@ $result = $conn->query($sql);
     .product-card:hover {
       transform: translateY(-5px);
     }
-    .product-image {
-      max-height: 180px;
-      object-fit: cover;
-    }
+   .product-image {
+  width: 100%;         
+  height: 300px;       
+  object-fit: cover;  
+}
+
     .search-btn {
       background-color: #ffc107;
       border-color: #ffc107;
@@ -91,7 +93,7 @@ $result = $conn->query($sql);
       <?php while($row = $result->fetch_assoc()): ?>
         <div class="col-md-4" data-aos="fade-up">
           <div class="card product-card h-100 shadow-sm">
-            <img src="<?= htmlspecialchars($row['image_url']) ?>" class="card-img-top product-image" alt="<?= htmlspecialchars($row['name']) ?>">
+           <img src="<?= htmlspecialchars($row['image_url']) ?>" class="card-img-top product-image" alt="<?= htmlspecialchars($row['name']) ?>">
             <div class="card-body d-flex flex-column">
               <h5 class="card-title"><?= htmlspecialchars($row['name']) ?></h5>
               <p class="card-text">

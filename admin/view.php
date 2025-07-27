@@ -33,6 +33,8 @@
 <div class="container my-5">
   <h2 class="text-center mb-4">Product List</h2>
 
+  <a href="dashboard.php" class="btn btn-warning">Back</a><br><br>
+
   <!-- Filter & Search Form -->
   <div class="row g-3 mb-4 align-items-end">
     <div class="col-md-4">
