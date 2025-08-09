@@ -60,7 +60,7 @@
       <div class="card shadow-sm">
         <img src="images/briyani.jpg" class="card-img-top" alt="Briyani">
         <div class="card-body">
-          <h5 class="card-title">Spicy Chicken Biryani</h5>
+          <h5 class="card-title">Chicken Biryani</h5>
           <p class="card-text">Tasty and hot biryani delivered right to your train seat.</p>
           <a href="products.php" class="btn btn-warning">Buy Now</a>
         </div>

@@ -99,7 +99,7 @@ $result = $conn->query($sql);
               <p class="card-text">
                 <?= htmlspecialchars($row['description']) ?>
               </p>
-              <p class="mb-1 text-muted"><i class="bi bi-tag"></i> <?= htmlspecialchars($row['category_name']) ?></p>
+
               <div class="mt-auto">
                 <strong class="text-primary text-lg">Price :₹<?= $row['price'] ?></strong><br><br> 
                
