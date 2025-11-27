@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2025 at 07:39 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Nov 27, 2025 at 06:55 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `id` int(10) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
@@ -50,7 +50,7 @@ CREATE TABLE `category` (
   `id` int(10) NOT NULL,
   `name` varchar(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `category`
@@ -60,7 +60,8 @@ INSERT INTO `category` (`id`, `name`, `created_at`) VALUES
 (1, 'veg', '2025-07-19 11:15:33'),
 (2, 'non veg', '2025-07-19 11:15:39'),
 (3, 'Snacks', '2025-07-26 10:02:45'),
-(4, 'Drinks', '2025-07-26 10:02:53');
+(4, 'Drinks', '2025-07-26 10:02:53'),
+(6, 'test', '2025-11-17 09:15:33');
 
 -- --------------------------------------------------------
 
@@ -80,15 +81,17 @@ CREATE TABLE `orders` (
   `total_price` varchar(20) NOT NULL,
   `status` varchar(20) DEFAULT 'Pending',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `name`, `email`, `phone`, `train_no`, `station`, `payment_method`, `total_price`, `status`, `created_at`) VALUES
-(1, 1, 'Prabhakaran S', 'viperprabhakaran@gmail.com', '6383786437', '125110', 'chennai eg', 'online', '100', 'Pending', '2025-07-19 11:22:09'),
-(2, 1, 'prabhakaran', 'viperprabhakaran@gmail.com', '6383786437', '125110', 'chennai eg', 'cash', '100', 'Delivered', '2025-08-02 08:21:07');
+(6, 1, 'Prabhakaran S', 'viperprabhakaran@gmail.com', '6383786437', '125110', 'chennai eg', 'online', '1', 'Pending', '2025-11-27 05:32:44'),
+(7, 1, 'Prabhakaran S', 'viperprabhakaran@gmail.com', '6383786437', '125110', 'chennai eg', 'cash', '1', 'Pending', '2025-11-27 05:41:42'),
+(8, 1, 'Prabhakaran S', 'viperprabhakaran@gmail.com', '6383786437', '125110', 'chennai eg', 'online', '1', 'Pending', '2025-11-27 05:43:47'),
+(9, 1, 'Prabhakaran S', 'viperprabhakaran@gmail.com', '06383786437', '125110', 'chennai eg', '0', '1', 'Delivered', '2025-11-27 05:49:26');
 
 -- --------------------------------------------------------
 
@@ -102,15 +105,17 @@ CREATE TABLE `order_items` (
   `product_id` int(11) NOT NULL,
   `quantity` varchar(10) NOT NULL,
   `price` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `order_items`
 --
 
 INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
-(1, 1, 1, '1', '100'),
-(2, 2, 1, '1', '100');
+(6, 6, 3, '1', '1'),
+(7, 7, 3, '1', '1'),
+(8, 8, 3, '1', '1'),
+(9, 9, 3, '1', '1');
 
 -- --------------------------------------------------------
 
@@ -128,16 +133,16 @@ CREATE TABLE `products` (
   `image_url` varchar(255) NOT NULL,
   `is_show` tinyint(1) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `category_id`, `description`, `price`, `quantity`, `image_url`, `is_show`, `created_at`) VALUES
-(1, 'Chicken Briyani', 2, 'Chicken biryani is a delicious Pakistani/Indian rice dish that\'s typically reserved for special occasions', '120.00', 198, 'images/1752923819_1751610129_chicken.webp', 1, '2025-07-19 11:16:59'),
-(2, 'Dosa', 1, 'A dosa is served hot, either folded in half or rolled like a wrap', '30.00', 300, 'images/1752923908_1751610361_plain.webp', 1, '2025-07-19 11:18:28'),
-(3, 'Senai kelangu Chips', 3, 'this is so spicy', '20.00', 300, 'images/1753524582_senai.jpg', 1, '2025-07-26 10:09:42');
+(1, 'Chicken Briyani', 2, 'Chicken biryani is a delicious Pakistani/Indian rice dish that\'s typically reserved for special occasions', 120.00, 99, 'images/1752923819_1751610129_chicken.webp', 1, '2025-07-19 11:16:59'),
+(2, 'Dosa', 1, 'A dosa is served hot, either folded in half or rolled like a wrap', 30.00, 299, 'images/1752923908_1751610361_plain.webp', 1, '2025-07-19 11:18:28'),
+(3, 'Senai kelangu Chips', 3, 'this is so spicy', 1.00, 295, 'images/1753524582_senai.jpg', 1, '2025-07-26 10:09:42');
 
 -- --------------------------------------------------------
 
@@ -152,7 +157,7 @@ CREATE TABLE `register` (
   `phone` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `register`
@@ -219,19 +224,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `products`
