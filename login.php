@@ -114,7 +114,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
 </div>
 
 <?php
-include 'db.php';
+include ('db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = htmlspecialchars(trim($_POST['username']));

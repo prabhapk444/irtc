@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'], $_POST['s
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'karanprabha22668@gmail.com';
-            $mail->Password = 'wyug jamk kuco mwin';
+            $mail->Password = 'vctn lmqf xjkl umfz';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2025 at 07:10 AM
+-- Generation Time: Oct 10, 2025 at 07:39 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -87,7 +87,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `name`, `email`, `phone`, `train_no`, `station`, `payment_method`, `total_price`, `status`, `created_at`) VALUES
-(1, 1, 'Prabhakaran S', 'viperprabhakaran@gmail.com', '6383786437', '125110', 'chennai eg', 'online', '100', 'Pending', '2025-07-19 11:22:09');
+(1, 1, 'Prabhakaran S', 'viperprabhakaran@gmail.com', '6383786437', '125110', 'chennai eg', 'online', '100', 'Pending', '2025-07-19 11:22:09'),
+(2, 1, 'prabhakaran', 'viperprabhakaran@gmail.com', '6383786437', '125110', 'chennai eg', 'cash', '100', 'Delivered', '2025-08-02 08:21:07');
 
 -- --------------------------------------------------------
 
@@ -108,7 +109,8 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
-(1, 1, 1, '1', '100');
+(1, 1, 1, '1', '100'),
+(2, 2, 1, '1', '100');
 
 -- --------------------------------------------------------
 
@@ -133,10 +135,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `category_id`, `description`, `price`, `quantity`, `image_url`, `is_show`, `created_at`) VALUES
-(1, 'Chicken Briyani', 2, 'Chicken biryani is a delicious Pakistani/Indian rice dish that\'s typically reserved for special occasions', '100.00', 199, 'images/1752923819_1751610129_chicken.webp', 1, '2025-07-19 11:16:59'),
+(1, 'Chicken Briyani', 2, 'Chicken biryani is a delicious Pakistani/Indian rice dish that\'s typically reserved for special occasions', '120.00', 198, 'images/1752923819_1751610129_chicken.webp', 1, '2025-07-19 11:16:59'),
 (2, 'Dosa', 1, 'A dosa is served hot, either folded in half or rolled like a wrap', '30.00', 300, 'images/1752923908_1751610361_plain.webp', 1, '2025-07-19 11:18:28'),
-(3, 'Senai kelangu Chips', 3, 'this is so spicy', '20.00', 300, 'images/1753524582_senai.jpg', 1, '2025-07-26 10:09:42'),
-(4, 'Orange juice', 4, 'Orange juice is a liquid extract of the orange tree fruit, produced by squeezing or reaming oranges.', '30.00', 300, 'images/1753524708_orange.jpeg', 1, '2025-07-26 10:11:48');
+(3, 'Senai kelangu Chips', 3, 'this is so spicy', '20.00', 300, 'images/1753524582_senai.jpg', 1, '2025-07-26 10:09:42');
 
 -- --------------------------------------------------------
 
@@ -224,13 +225,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`

@@ -103,14 +103,19 @@ $result = $conn->query($sql);
               <div class="mt-auto">
                 <strong class="text-primary text-lg">Price :₹<?= $row['price'] ?></strong><br><br> 
                
-              <button class="btn btn-warning add-to-cart-btn" 
-        data-id="<?= $row['id'] ?>" 
-        data-name="<?= htmlspecialchars($row['name']) ?>" 
-        data-price="<?= $row['price'] ?>" 
-        data-image="<?= htmlspecialchars($row['image_url']) ?>" 
-        data-quantity="<?= $row['quantity'] ?>">
-  Add to Cart
-</button>
+             <?php if ($row['quantity'] > 0): ?>
+  <button class="btn btn-warning add-to-cart-btn" 
+          data-id="<?= $row['id'] ?>" 
+          data-name="<?= htmlspecialchars($row['name']) ?>" 
+          data-price="<?= $row['price'] ?>" 
+          data-image="<?= htmlspecialchars($row['image_url']) ?>" 
+          data-quantity="<?= $row['quantity'] ?>">
+    Add to Cart
+  </button>
+<?php else: ?>
+  <button class="btn btn-secondary" disabled>Out of Stock</button>
+<?php endif; ?>
+
 
               </div>
             </div>

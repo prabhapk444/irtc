@@ -31,7 +31,8 @@ foreach ($data['items'] as $item) {
 }
 
 $stmt = $conn->prepare("INSERT INTO orders (user_id, name, email, phone, train_no, station, payment_method, total_price, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())");
-$stmt->bind_param("issssssd", $user_id, $name, $email, $phone, $train_no, $station, $payment, $total_price);
+$stmt->bind_param("isssssds", $user_id, $name, $email, $phone, $train_no, $station, $payment, $total_price);
+
 $stmt->execute();
 $order_id = $stmt->insert_id;
 
@@ -80,7 +81,7 @@ try {
   $mail->Host = 'smtp.gmail.com';
   $mail->SMTPAuth = true;
   $mail->Username = 'karanprabha22668@gmail.com';
-  $mail->Password = 'wyug jamk kuco mwin';
+  $mail->Password = 'vctn lmqf xjkl umfz';
   $mail->SMTPSecure = 'tls';
   $mail->Port = 587;
 
